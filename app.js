@@ -28,13 +28,15 @@ window.addEventListener("load", () => {
           tempDegree.textContent = Math.floor(temp);
           weatherDesc.textContent = weather[0].description;
           icon.src = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
-
+          let celsius = (Math.floor(temp) - 32) * (5 / 9);
           //change from Farenheit to Celsius, does not yet actually change the temp value, just the symbol.
           tempSection.addEventListener("click", () => {
             if (tempSpan.textContent === "F") {
               tempSpan.textContent = "C";
+              tempDegree.textContent = celsius;
             } else if (tempSpan.textContent === "C") {
               tempSpan.textContent = "F";
+              tempDegree.textContent = Math.floor(temp);
             }
           });
         });
